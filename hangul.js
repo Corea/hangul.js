@@ -55,11 +55,11 @@ finalConsonant = function(hangul) {
 }
 
 mergeConsonant = function(initial, medial, final) {
-  initial -= 0x1100;
-  medial -= 0x1161;
-  final -= 0x11A7;
+  var initialCode = initial.charCodeAt(0) - 0x1100;
+  var medialCode = medial.charCodeAt(0) - 0x1161;
+  var finalCode = final.charCodeAt(0) - 0x11A7;
 
-  var unicode = initial * 21 * 28 + medial * 28 + final;
+  var unicode = initialCode * 21 * 28 + medialCode * 28 + finalCode;
   var ret = String.fromCharCode(0xAC00 + unicode);
   return ret;
 }
